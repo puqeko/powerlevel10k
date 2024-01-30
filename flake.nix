@@ -2,11 +2,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/23.11";
     utils.url = "github:numtide/flake-utils";
-    gitstatus.url = "github:puqeko/gitstatus/nixify";
+    gs.url = "github:puqeko/gitstatus/nixify";
   };
-  outputs = { self, nixpkgs, utils, gitstatus, ... }@inputs: utils.lib.eachDefaultSystem (system:
+  outputs = { self, nixpkgs, utils, gs, ... }@inputs: utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
+      gitstatus = gs.outputs.defaultPackage.${system};
       p10k = pkgs.stdenv.mkDerivation {
         name = "p10k";
         buildInputs = [ pkgs.zsh ];
@@ -24,13 +25,14 @@
         '';
         installPhase = ''
           mkdir -p $out
-          cp *.zsh-theme $out
-          cp *.zwc $out
+          cp -v *.zsh-theme $out
+          cp -v *.zwc $out
           mkdir -p $out/internal
-          cp internal/*.zsh $out/internal
-          cp internal/*.zwc $out/internal
+          cp -v internal/*.zsh $out/internal
+          cp -v internal/*.zwc $out/internal
           mkdir -p $out/config
-          cp config/*.zsh $out/config
+          cp -v config/*.zsh $out/config
+          ln -vs ${gitstatus} $out/gitstatus
         '';
         inherit system;
       };

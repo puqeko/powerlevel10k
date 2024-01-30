@@ -1,16 +1,16 @@
 {
   "nodes": {
-    "gitstatus": {
+    "gs": {
       "inputs": {
         "nixpkgs": "nixpkgs",
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1706608839,
-        "narHash": "sha256-WE8xh9LzcK8e0nlhEyx4mrh3VF9u9Y5/esniLRB5/eE=",
+        "lastModified": 1706684448,
+        "narHash": "sha256-aqIFwBD538UnPoGoaXQG5+Hp7nBCIIIutgyWXNoTuNI=",
         "owner": "puqeko",
         "repo": "gitstatus",
-        "rev": "f9dcbdc01a29930856894e4a74bb00d401c0b4c8",
+        "rev": "6993ca9909cedfca3ab6d5c978aa166de12f1254",
         "type": "github"
       },
       "original": {
@@ -52,7 +52,7 @@
     },
     "root": {
       "inputs": {
-        "gitstatus": "gitstatus",
+        "gs": "gs",
         "nixpkgs": "nixpkgs_2",
         "utils": "utils_2"
       }
