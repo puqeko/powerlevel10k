@@ -14,7 +14,7 @@
         propogatedBuildInputs = [ gitstatus ];
         src = pkgs.lib.sourceFilesBySuffices ./. [ ".zsh" ".zsh-theme" ];
         configurePhase = ''
-          ln -vs ${gitstatus} gitstatus
+          ln -vs ${gitstatus}/share/gitstatus gitstatus
         '';
         buildPhase = ''
           zsh -fc '
@@ -32,7 +32,7 @@
           cp -v internal/*.zwc $out/internal
           mkdir -p $out/config
           cp -v config/*.zsh $out/config
-          ln -vs ${gitstatus} $out/gitstatus
+          ln -vs ${gitstatus}/share/gitstatus $out/gitstatus
         '';
         inherit system;
       };
