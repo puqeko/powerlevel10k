@@ -7107,6 +7107,10 @@ _p9k_trapint() {
 }
 
 _p9k_precmd() {
+
+  # To prevent mess on terminal resizing, fix the columns until new prompt
+  typeset -g __p9k_col_fixed=$COLUMNS
+
   __p9k_new_status=$?
   __p9k_new_pipestatus=($pipestatus)
 
@@ -8329,10 +8333,10 @@ _p9k_init_prompt() {
   _p9k_gap_pre+='${_p9k__m::=$((_p9k__clm-_p9k__x-_p9k__ind-1))}'
   _p9k_gap_pre+='}+}'
 
-  _p9k_prompt_prefix_left='${${_p9k__clm::=$COLUMNS}+}${${COLUMNS::=1024}+}'
-  _p9k_prompt_prefix_right='${_p9k__'$#_p9k_line_segments_left'-${${_p9k__clm::=$COLUMNS}+}${${COLUMNS::=1024}+}'
-  _p9k_prompt_suffix_left='${${COLUMNS::=$_p9k__clm}+}'
-  _p9k_prompt_suffix_right='${${COLUMNS::=$_p9k__clm}+}}'
+  _p9k_prompt_prefix_left='${${_p9k__clm::=$__p9k_col_fixed}+}${${__p9k_col_fixed::=1024}+}'
+  _p9k_prompt_prefix_right='${_p9k__'$#_p9k_line_segments_left'-${${_p9k__clm::=$__p9k_col_fixed}+}${${__p9k_col_fixed::=1024}+}'
+  _p9k_prompt_suffix_left='${${__p9k_col_fixed::=$_p9k__clm}+}'
+  _p9k_prompt_suffix_right='${${__p9k_col_fixed::=$_p9k__clm}+}}'
 
   if _p9k_segment_in_use vi_mode || _p9k_segment_in_use prompt_char; then
     _p9k_prompt_prefix_left+='${${_p9k__keymap::=${KEYMAP:-$_p9k__keymap}}+}'

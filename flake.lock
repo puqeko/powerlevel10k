@@ -6,11 +6,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1706684448,
-        "narHash": "sha256-aqIFwBD538UnPoGoaXQG5+Hp7nBCIIIutgyWXNoTuNI=",
+        "lastModified": 1706688020,
+        "narHash": "sha256-MmbrzPie4Q9zN7ag/oN7dZqxl4EOY3Ozv5+NT1T3Urk=",
         "owner": "puqeko",
         "repo": "gitstatus",
-        "rev": "6993ca9909cedfca3ab6d5c978aa166de12f1254",
+        "rev": "72b6e5a3411ee518a55fb77ac96e08661316c257",
         "type": "github"
       },
       "original": {

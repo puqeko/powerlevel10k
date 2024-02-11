@@ -7,7 +7,7 @@
   outputs = { self, nixpkgs, utils, gs, ... }@inputs: utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
-      gitstatus = gs.outputs.defaultPackage.${system};
+      gitstatus = gs.outputs.packages.${system};
       p10k = pkgs.stdenv.mkDerivation {
         name = "p10k";
         buildInputs = [ pkgs.zsh ];
@@ -37,7 +37,7 @@
         inherit system;
       };
     in {
-      defaultPackage = p10k;
+      packages.p10k = p10k;
       devShell = pkgs.mkShell {
         inputsFrom = [p10k];
       };
