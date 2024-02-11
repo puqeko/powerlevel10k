@@ -2,6 +2,15 @@
 [![Gitter](https://badges.gitter.im/powerlevel10k/community.svg)](
   https://gitter.im/powerlevel10k/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+---
+Customisations on this fork include
+- Nix integration
+- Customised gitstatus that reports a repo even if the git index is invalid, see https://github.com/puqeko/gitstatus.
+- Resize spam reduction
+  > When the prompt is incorrectly overwritten on resize (specifically, when decreasing the width) it can occur that a terminal thinks the line has been wrapped in a way that can generate infinite characters with continuous resizing. This messes up the visable history and makes terminal navigation awful. Observed in MacOS terminal.
+
+---
+
 Powerlevel10k is a theme for Zsh. It emphasizes [speed](#uncompromising-performance),
 [flexibility](#extremely-customizable) and [out-of-the-box experience](#configuration-wizard).
 
