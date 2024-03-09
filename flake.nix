@@ -2,7 +2,7 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
 
-    nixpkgs.follow = "gs/nixpkgs";  # inherit same pkgs version as gitstatus
+    nixpkgs.follows = "gs/nixpkgs";  # inherit same pkgs version as gitstatus
     gs.url = "github:puqeko/gitstatus/nixify";
   };
   outputs = { self, nixpkgs, utils, gs, ... }@inputs: utils.lib.eachDefaultSystem (system:
